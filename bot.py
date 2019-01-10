@@ -1,9 +1,10 @@
+import settings
 import os
-
 import discord
 from discord.ext import commands
+from modules import xkcd
 
-TOKEN = os.environ.get('DISCORD_BOT_API_TOKEN')
+TOKEN = os.getenv('DISCORD_BOT_API_TOKEN')
 bot = commands.Bot(command_prefix='$', description='Just A Rather Very Intelligent System, now on Discord!')
 
 
@@ -18,5 +19,17 @@ async def on_ready():
 @bot.command()
 async def greet(ctx):
     await ctx.send(":smiley: :wave: Hello, there!")
+
+@bot.command(name='xkcd',
+        description='Retrieves a random xkcd comic through external API call',
+        brief='Retrieves a random xkcd comic')
+async def get_xkcd(ctx):
+    try:
+        embed=xkcd.process()
+        await ctx.send(embed=embed)
+
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
 
 bot.run(TOKEN)
