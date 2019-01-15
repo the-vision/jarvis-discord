@@ -1,6 +1,10 @@
 from random import randint
 import discord
 import requests
+import requests_cache
+
+requests_cache.install_cache()
+
 
 def process():
     r = requests.get('http://xkcd.com/info.0.json')

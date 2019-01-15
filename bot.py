@@ -1,6 +1,7 @@
-import settings
 import os
+
 import discord
+import settings
 from discord.ext import commands
 from modules import xkcd
 
