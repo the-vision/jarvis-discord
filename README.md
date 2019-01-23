@@ -16,3 +16,11 @@ python bot.py
 ```
 
 Create a ```.env``` file following the template of the ```example.env``` file provided in the repository with your own Discord Bot Token.
+
+## Modules
+
+| Name  |  Sample Query  |     Source |
+|-------|:--------------:|-----------:|
+| xkcd  |      $xkcd     |       xkcd |
+| image | $image oranges | Google CSE |
+
