@@ -7,7 +7,7 @@ import config
 from discord.ext import commands
 from modules import xkcd
 from modules import roll
-from modules import ping_google
+from modules import ping
 from modules import weather
 from modules import time_in
 from modules import joke
@@ -61,11 +61,11 @@ async def get_roll(ctx):
         await ctx.send("Sorry, something went wrong.")
     
 #Called when $ping_google is typed. Checks google's status(up/down)    
-@bot.command(name = 'ping_google')
-async def get_ping_google(ctx):
+@bot.command(pass_context = True, name = 'ping')
+async def get_ping(ctx,*,message):
     try:
-        str = ping_google.process()
-        await ctx.send(str)
+        embed = ping.process(message)
+        await ctx.send(embed=embed)
     except Exception as e:
         print(e)
         await ctx.send("Sorry, something went wrong.")
