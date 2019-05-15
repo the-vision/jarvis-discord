@@ -1,3 +1,4 @@
-__all__= [
-        'xkcd'
+__all__ = [
+    'xkcd',
+    'news'
         ]
