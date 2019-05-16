@@ -1,6 +1,6 @@
 import settings
 import os
-from modules import news
+from modules import news, image
 
 import discord
 from discord.ext import commands
@@ -41,5 +41,19 @@ async def get_xkcd(ctx):
              brief='Retrieves a top headline')
 async def cmd_news(ctx):
     await ctx.send(embed=news.top_headlines())
+
+
+@bot.command(
+    name='image',
+    description='Searches an image from google search engine',
+    brief='Search an image')
+async def search_image(ctx, search_arg):
+    try:
+        embed = await image.process(search_arg)
+        await ctx.send(embed=embed)
+
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
 
 bot.run(TOKEN)
