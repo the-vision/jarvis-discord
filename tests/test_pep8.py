@@ -6,7 +6,7 @@ import pep8
 
 class TestCodeFormat(unittest.TestCase):
     def test_pep8_conformance(self):
-        """Test that we conform to PEP8."""
+        """Test that we conform to PEP8. checks all project files"""
         errors = 0
         style = pep8.StyleGuide(quiet=False)
         style.options.max_line_length = 100
