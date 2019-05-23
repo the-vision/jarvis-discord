@@ -1,5 +1,4 @@
 import os
-import os.path
 import unittest
 import pep8
 
@@ -9,7 +8,7 @@ class TestCodeFormat(unittest.TestCase):
         """Test that we conform to PEP8. checks all project files"""
         errors = 0
         style = pep8.StyleGuide(quiet=False)
-        style.options.max_line_length = 100
+        style.options.max_line_length = 120
         for root, dirs, files in os.walk('.'):
             python_files = [os.path.join(root, f) for f in files if f.endswith(".py")]
             errors = style.check_files(python_files).total_errors
