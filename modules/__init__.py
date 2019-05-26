@@ -1,4 +1,5 @@
 __all__ = [
     'xkcd',
-    'news'
+    'news',
+    'flip_a_coin'
         ]

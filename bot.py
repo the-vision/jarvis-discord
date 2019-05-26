@@ -1,6 +1,6 @@
 import settings
 import os
-from modules import news, image
+from modules import news, image, flip_a_coin
 
 import discord
 from discord.ext import commands
@@ -55,5 +55,19 @@ async def search_image(ctx, search_arg):
     except Exception as e:
         print(e)
         await ctx.send("Sorry, something went wrong.")
+
+
+@bot.command(name='flip_a_coin',
+             description='Flip a coin game',
+             brief='flip a coin and send head to tails')
+async def flip_coin(ctx):
+    try:
+        embed = flip_a_coin.coinToss()
+        await ctx.send(embed=embed)
+
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
+
 
 bot.run(TOKEN)
