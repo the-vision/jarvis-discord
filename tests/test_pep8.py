@@ -9,7 +9,7 @@ class TestCodeFormat(unittest.TestCase):
         errors = 0
         style = pep8.StyleGuide(quiet=False)
         style.options.max_line_length = 120
-        for root, dirs, files in os.walk('.'):
+        for root, dirs, files in os.walk("."):
             python_files = [os.path.join(root, f) for f in files if f.endswith(".py")]
             errors = style.check_files(python_files).total_errors
 

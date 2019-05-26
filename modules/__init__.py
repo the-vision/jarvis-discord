@@ -1,5 +1,1 @@
-__all__ = [
-    'xkcd',
-    'news',
-    'flip_a_coin'
-        ]
+__all__ = ["xkcd", "news", "flip_a_coin"]
