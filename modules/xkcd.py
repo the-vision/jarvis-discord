@@ -8,7 +8,7 @@ def process():
     data = r.json()
 
     # Get a random comic between the first and the latest one
-    r = requests.get("http://xkcd.com/%d/info.0.json" % randint(1, data["num"]))
+    r = requests.get("http://xkcd.com/%d/info.0.json" % randint(1, data["num"]))  # noqa style error resolved
     data = r.json()
 
     title = data["title"]
