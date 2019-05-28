@@ -1,7 +1,6 @@
 import random
 import discord
 
-tail_image_url = "https://urlzs.com/UXXyP"
 dice_shows_1_url = "https://urlzs.com/8zuPx"
 dice_shows_2_url = "https://urlzs.com/mtafi"
 dice_shows_3_url = "https://urlzs.com/q3zXc"
