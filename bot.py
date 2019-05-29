@@ -4,7 +4,7 @@ from modules import news, image
 
 import discord
 from discord.ext import commands
-from modules import xkcd, flip_a_coin, roll_a_dice
+from modules import xkcd, flip_a_coin, roll_a_dice, shorten_url
 
 TOKEN = os.getenv('DISCORD_BOT_API_TOKEN')
 bot = commands.Bot(command_prefix='$', description='Just A Rather Very Intelligent System, now on Discord!')
@@ -86,5 +86,18 @@ async def roll_dice(ctx):
         print(e)
         await ctx.send("Sorry, something went wrong.")
 
+@bot.command(
+             name="shorturl",
+             description="shorten a given url",
+             brief="Short a url",
+             )
+async def short_url(ctx, search_arg):
+    try:
+        embed = shorten_url.urlShortner(search_arg)
+        await ctx.send(embed=embed)
+    
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
 
 bot.run(TOKEN)
