@@ -4,7 +4,11 @@ from modules import news, image
 
 import discord
 from discord.ext import commands
+<<<<<<< HEAD
 from modules import xkcd, coin
+=======
+from modules import xkcd, flip_a_coin
+>>>>>>> 4c18cbb812b0f8beabb76a514b67107dac288796
 
 TOKEN = os.getenv('DISCORD_BOT_API_TOKEN')
 bot = commands.Bot(command_prefix='$', description='Just A Rather Very Intelligent System, now on Discord!')
@@ -58,13 +62,21 @@ async def search_image(ctx, search_arg):
 
 
 @bot.command(
+<<<<<<< HEAD
     name="coin",
+=======
+    name="flip_a_coin",
+>>>>>>> 4c18cbb812b0f8beabb76a514b67107dac288796
     description="Flip a coin game",
     brief="flip a coin and send head to tails",
 )
 async def flip_coin(ctx):
     try:
+<<<<<<< HEAD
         embed = coin.coinToss()
+=======
+        embed = flip_a_coin.coinToss()
+>>>>>>> 4c18cbb812b0f8beabb76a514b67107dac288796
         await ctx.send(embed=embed)
 
     except Exception as e:
