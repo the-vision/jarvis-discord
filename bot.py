@@ -4,7 +4,7 @@ from modules import news, image
 
 import discord
 from discord.ext import commands
-from modules import xkcd
+from modules import xkcd, coin
 
 TOKEN = os.getenv('DISCORD_BOT_API_TOKEN')
 bot = commands.Bot(command_prefix='$', description='Just A Rather Very Intelligent System, now on Discord!')
@@ -55,5 +55,21 @@ async def search_image(ctx, search_arg):
     except Exception as e:
         print(e)
         await ctx.send("Sorry, something went wrong.")
+
+
+@bot.command(
+    name="coin",
+    description="Flip a coin game",
+    brief="flip a coin and send head to tails",
+)
+async def flip_coin(ctx):
+    try:
+        embed = coin.coinToss()
+        await ctx.send(embed=embed)
+
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
+
 
 bot.run(TOKEN)
