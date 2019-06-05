@@ -15,6 +15,5 @@ class TestCodeFormat(unittest.TestCase):
 
         self.assertEqual(errors, 0, "PEP8 style errors: %d" % errors)
 
-
 if __name__ == "__main__":
     unittest.main()

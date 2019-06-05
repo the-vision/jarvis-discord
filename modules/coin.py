@@ -1,8 +1,8 @@
 import random
 import discord
 
-head_image_url = "https://www.thespecialgiftcompany.com/wp-content/uploads/2017/10/tails-head-coin.jpg"
-tail_image_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrUfZKS5OsMPCEPPQMfRLY8cNGC5Pr8pysA1hP2gvGC75kKaJuVQ"
+head_image_url = "https://urlzs.com/Wi46z"
+tail_image_url = "https://urlzs.com/UXXyP"
 
 
 def cointoss(number):
