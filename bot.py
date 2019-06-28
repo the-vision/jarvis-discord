@@ -1,6 +1,6 @@
 import settings
 import os
-from modules import news, image
+from modules import news, image,movie
 
 import discord
 from discord.ext import commands
@@ -56,4 +56,14 @@ async def search_image(ctx, search_arg):
         print(e)
         await ctx.send("Sorry, something went wrong.")
 
+@bot.command(pass_context=True,name = 'movie')
+async def get_movie(ctx,*, message):
+  try:
+    output = movie.process(message)
+    r = str(output['output']).replace('{','').replace('}','').replace('\'text\':','').replace('\'','').replace('\\n', '\n').replace('"','')
+    await ctx.send(r)
+  except Exception as e:
+    print(e)
+    await ctx.send("Sorry, something went wrong.")  
+    
 bot.run(TOKEN)
