@@ -10,6 +10,7 @@ TOKEN = os.getenv('DISCORD_BOT_API_TOKEN')
 bot = commands.Bot(command_prefix='$', description='Just A Rather Very Intelligent System, now on Discord!')
 musicPlayer = music.MusicPlayer()
 
+
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -55,12 +56,15 @@ async def search_image(ctx, search_arg):
     except Exception as e:
         print(e)
         await ctx.send("Sorry, something went wrong.")
+
+
 @bot.command(name='connect',
              description='Connects to this voiceChannel',
              brief='Connects to this voice channel')
 async def yt(ctx):
     channel = bot.get_channel(ctx.message.author.voice.channel.id)
     await musicPlayer.connect(channel)
+
 
 @bot.command(name='disconnect',
              description='Disconnects from this voiceChannel',
@@ -109,6 +113,7 @@ async def yt(ctx):
              brief='Starts playing songs')
 async def yt(ctx):
     channel = bot.get_channel(ctx.message.author.voice.channel.id)
-    await musicPlayer.play(ctx,channel)
+    await musicPlayer.play(ctx, channel)
+
 
 bot.run(TOKEN)

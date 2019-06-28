@@ -1,13 +1,14 @@
-import youtube_dl as ytdl
-import discord
 import os
+
+import discord
+import youtube_dl as ytdl
 
 
 class MusicPlayer:
     '''
-        This module is responsible for connecting and disconnecting the bot from a voice channel, downloading songs from youtube
-         and add them in the queue . Basic music functions like pause, resume, stop and play, in order to give users a simple
-        music bot based on the new api of discord.
+        This module is responsible for connecting and disconnecting the bot from a voice channel, downloading songs from
+        youtube and add them in the queue . Basic music functions like pause, resume, stop and play, in order to give
+        users a simple music bot based on the new api of discord.
     '''
 
     def __init__(self):
@@ -35,8 +36,8 @@ class MusicPlayer:
 
     async def disconnect(self):
         '''
-        Disconnects from the channel that the bot is already connected. If there is no such a channel, this function will
-        simply do nothing
+        Disconnects from the channel that the bot is already connected. If there is no such a channel,
+        this function will simply do nothing
         '''
         if self.voiceChannel is not None and self.voiceChannel.is_connected():
             await self.voiceChannel.disconnect()
@@ -53,8 +54,8 @@ class MusicPlayer:
 
     def clear_folder(self):
         '''
-        Because the songs will be downloaded, it is important to delete them if there are not longer needed. This function
-        deletes the songs that are not in the queue (not one of the upcoming songs)
+        Because the songs will be downloaded, it is important to delete them if there are not longer needed.
+        This function deletes the songs that are not in the queue (not one of the upcoming songs)
         '''
         for song in os.listdir("songs/"):
 
@@ -110,8 +111,8 @@ class MusicPlayer:
 
     async def stop(self, ctx):
         '''
-        Stops the music if there is music or sends message if there is not. At the end clears the file of the unnecessary
-        songs.
+        Stops the music if there is music or sends message if there is not. At the end clears the file of
+        the unnecessary songs.
         :param ctx: The channel from which the user gave the command.
         '''
         if self.voiceChannel is not None and self.voiceChannel.is_connected() and self.voiceChannel.is_playing():
@@ -126,7 +127,8 @@ class MusicPlayer:
         there is no song playing at the moment
         :param ctx: The channel from which the user gave the command.
         '''
-        if self.voiceChannel is not None and self.voiceChannel.is_connected() and self.voiceChannel.is_playing() and self.queue:
+        if self.voiceChannel is not None and self.voiceChannel.is_connected() and self.voiceChannel.is_playing() \
+                and self.queue:
             await self.stop(ctx)
             self.load_next_song()
         elif not self.queue:
@@ -141,7 +143,8 @@ class MusicPlayer:
         :param ctx: The channel from which the user gave the command.
         '''
         await self.connect(channel)
-        if self.voiceChannel is not None and self.voiceChannel.is_connected() and not self.voiceChannel.is_playing() and self.queue:
+        if self.voiceChannel is not None and self.voiceChannel.is_connected() and not self.voiceChannel.is_playing()\
+                and self.queue:
             self.load_next_song()
         elif not self.queue:
             await ctx.send("There is no song in the list")
