@@ -1,7 +1,7 @@
 import settings
 import os
 from modules import news, image
-
+from modules import book
 import discord
 from discord.ext import commands
 from modules import xkcd
@@ -52,6 +52,19 @@ async def search_image(ctx, search_arg):
         embed = await image.process(search_arg)
         await ctx.send(embed=embed)
 
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
+
+
+@bot.command(pass_context=True, name='book')
+async def get_book(ctx, *, message):
+    try:
+        output = book.process(message)
+        r = str(output['output']).replace('{', '').replace('}', '')
+        r = r.replace('\'text\':', '').replace('\'', '')
+        r = r.replace('\\n', '\n').replace('"', '')
+        await ctx.send(r)
     except Exception as e:
         print(e)
         await ctx.send("Sorry, something went wrong.")
