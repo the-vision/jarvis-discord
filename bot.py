@@ -1,7 +1,7 @@
 import settings
 import os
 from modules import news, image
-
+from modules import bye
 import discord
 from discord.ext import commands
 from modules import xkcd
