@@ -56,4 +56,17 @@ async def search_image(ctx, search_arg):
         print(e)
         await ctx.send("Sorry, something went wrong.")
 
+
+@bot.command(pass_context=True, name='movie')
+async def get_movie(ctx, *, message):
+    try:
+        output = movie.process(message)
+        r = str(output['output']).replace('{', '').replace('}', '')
+        r = r.replace('\'text\':', '').replace('\'', '')
+        r = r.replace('\\n', '\n').replace('"', '')
+        await ctx.send(r)
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
+
 bot.run(TOKEN)
