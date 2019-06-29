@@ -1,7 +1,7 @@
 import settings
 import os
 from modules import news, image
-
+from modules import bye
 import discord
 from discord.ext import commands
 from modules import xkcd
@@ -55,5 +55,12 @@ async def search_image(ctx, search_arg):
     except Exception as e:
         print(e)
         await ctx.send("Sorry, something went wrong.")
+
+
+@bot.command(name='bye')
+async def get_bye(ctx):
+    userName = ctx.author.name
+    output = bye.process(userName)
+    await ctx.send(output)
 
 bot.run(TOKEN)
