@@ -56,4 +56,11 @@ async def search_image(ctx, search_arg):
         print(e)
         await ctx.send("Sorry, something went wrong.")
 
+
+@bot.command(name='bye')
+async def get_bye(ctx):
+    userName = ctx.author.name
+    output = bye.process(userName)
+    await ctx.send(output)
+        
 bot.run(TOKEN)
