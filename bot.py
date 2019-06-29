@@ -62,5 +62,5 @@ async def get_bye(ctx):
     userName = ctx.author.name
     output = bye.process(userName)
     await ctx.send(output)
-        
+
 bot.run(TOKEN)
