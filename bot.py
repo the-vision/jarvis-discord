@@ -56,4 +56,14 @@ async def search_image(ctx, search_arg):
         print(e)
         await ctx.send("Sorry, something went wrong.")
 
+
+@bot.command(pass_context=True, name='video')
+async def get_video(ctx, *, message):
+    try:
+        output = video.process(message)
+        await ctx.send(output['output'])
+    except Exception as e:
+        print(e)
+        await ctx.send("Sorry, something went wrong.")
+
 bot.run(TOKEN)
