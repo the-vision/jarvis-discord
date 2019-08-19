@@ -26,4 +26,4 @@ Create a ```.env``` file following the template of the ```example.env``` file pr
 If you command '$xkcd', return a random xkcd comic, like this.
 http://explainxkcd.com/400/
 
-https://explainxkcd.com/wiki/images/f/fa/important_life_lesson.png
+![xkcd image](https://explainxkcd.com/wiki/images/f/fa/important_life_lesson.png)
