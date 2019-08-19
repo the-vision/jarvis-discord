@@ -19,3 +19,9 @@ python bot.py
 ```
 
 Create a ```.env``` file following the template of the ```example.env``` file provided in the repository with your own Discord Bot Token.
+
+## Demo
+
+### $xkcd
+If you command '$xkcd', return a random xkcd comic, like this.
+http://explainxkcd.com/400/
